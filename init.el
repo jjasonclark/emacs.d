@@ -17,16 +17,17 @@
 
 (require 'init-package)
 
-;; Turn off the superug
 (when (equal system-type 'darwin)
   (require 'init-mac))
 
+(require 'init-clojure)
 (require 'init-dns)
 (require 'init-gnuplot)
 (require 'init-grep-a-lot)
 (require 'init-nagios)
 (require 'init-nginx)
-(require 'init-shell-pop)
+;; This is probably needed via emacs-wiki install
+;;(require 'init-shell-pop)
 (require 'init-smerge)
 (require 'init-smex)
 (require 'init-uniquify)
