@@ -254,5 +254,7 @@ file"
 
 (load-theme 'zenburn 'NO-CONFIRM)
 
-(provide 'init-my-defaults)
+;; I like having the menu bar
+(menu-bar-mode t)
 
+(provide 'init-my-defaults)

@@ -3,3 +3,4 @@
 init-work.el
 elpa/*
 .smex-items
+tmp/*
