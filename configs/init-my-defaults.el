@@ -169,5 +169,90 @@ file"
 
 
 
+(global-font-lock-mode 1)
+
+;; always end a file with a newline
+(setq require-final-newline t)
+
+;; no need for backup-files in this day and age?
+(setq make-backup-files nil)
+
+
+(global-set-key "\M-g" 'goto-line)
+(global-set-key [(control tab)]  'indent-relative)
+
+;; no more overwrite!
+(global-set-key [insert] nil)
+
+;; Kill annoying <C-next> scroll-left key, make same as page down
+;; Mainly to work around bad mac habits
+(global-set-key [(control next)] 'scroll-up)
+(global-set-key [(control prior)] 'scroll-down)
+
+; C-Shift-backspace is the native one for this
+(global-set-key [(control shift k)] 'kill-whole-line)
+
+;; Can't stand the gnome file dialog
+(setq use-file-dialog nil)
+
+
+(defun zev-sc-status ()
+  "Call the proper status call if current buffer's dir has .svn"
+  (interactive)
+  (let ((dirname (file-name-directory buffer-file-name)))
+    (if (file-exists-p (concat dirname "/.svn"))
+        (svn-status dirname)
+      (magit-status dirname))
+    )
+  )
+
+(global-set-key [f6] 'zev-sc-status)
+
+;; From http://nflath.com/2009/10/emacs-settings/ some other good stuff in there too.
+(setq temporary-file-directory "~/.emacs.d/tmp/")
+
+;; use spaces instead of tabs
+(setq-default indent-tabs-mode nil)
+
+;; don't let `next-line' add new lines in buffer
+(setq next-line-add-newlines nil)
+
+;; get rid of yes-or-no questions - y or n is enough
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; auto-fill is default for text-mode
+;;(add-hook 'text-mode-hook
+;;     'auto-fill-mode)
+
+;; open unknown in text mode
+(setq default-major-mode 'text-mode)
+
+;; Shift arrows to move around easier
+(windmove-default-keybindings)
+
+(setq author "Zev Blut")
+
+;; auto set 755 on #! files
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
+
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Get rid of annoying warning about needing to make directory
+(add-hook 'before-save-hook
+          '(lambda ()
+             (or (file-exists-p (file-name-directory buffer-file-name))
+                 (make-directory (file-name-directory buffer-file-name) t))))
+
+
+(put 'narrow-to-region 'disabled nil)
+
+
+(put 'scroll-left 'disabled nil)
+
+
+(load-theme 'zenburn 'NO-CONFIRM)
 
 (provide 'init-my-defaults)
+

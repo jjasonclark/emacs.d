@@ -31,7 +31,9 @@
                       gnuplot
                       haskell-mode
                       erlang
-                      grep-a-lot))
+                      grep-a-lot
+                      zenburn-theme))
+
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
