@@ -30,6 +30,7 @@
 ;;(require 'init-shell-pop)
 (require 'init-smerge)
 (require 'init-smex)
+(require 'init-tramp)
 (require 'init-uniquify)
 
 
