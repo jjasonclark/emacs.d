@@ -206,7 +206,9 @@ file"
     )
   )
 
+(global-set-key [f5] 'revert-buffer)
 (global-set-key [f6] 'zev-sc-status)
+(global-set-key [f2] 'rgrep)
 
 ;; From http://nflath.com/2009/10/emacs-settings/ some other good stuff in there too.
 (setq temporary-file-directory "~/.emacs.d/tmp/")
