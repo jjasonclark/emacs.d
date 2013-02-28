@@ -206,9 +206,68 @@ file"
     )
   )
 
+
+;; overload this
+(defun zev-grep-find (command-args)
+  "Run grep via find, with user-specified args COMMAND-ARGS.
+Collect output in a buffer.
+While find runs asynchronously, you can use the \\[next-error] command
+to find the text that grep hits refer to.
+
+This command uses a special history list for its arguments, so you can
+easily repeat a find command."
+  (interactive
+   (progn
+     (grep-compute-defaults)
+     (if grep-find-command
+	 (list (read-from-minibuffer "Run find (like this): "
+				     (funcall zev-grep-find-command) nil nil
+                                     'grep-find-history))
+       ;; No default was set
+       (read-string
+        "compile.el: No `grep-find-command' command available. Press RET.")
+       (list nil))))
+  (when command-args
+    (let ((null-device nil))		; see grep
+      (grep command-args))))
+
+(setq zev-grep-command "grep -n -E ")
+(setq zev-grep-find-command (lambda ()
+                          (let ((fmt-str (zev-find-mode-str)))
+                            (format "%s %s -regex '%s' -print0 | xargs -0 -e %s %s"
+                                    find-program (discover-current-project) fmt-str zev-grep-command (or (thing-at-point 'sexp) "")))))
+
+;; Trying to get this to quote the symbol..
+;; (setq grep-find-command (lambda ()
+;;                           (let ((fmt-str (zev-find-mode-str)))
+;;                             (format "%s %s -regex '%s' -print0 | xargs -0 -e %s %s"
+;;                                     find-program (discover-current-project) fmt-str grep-command (concat "\"" (thing-at-point 'sexp) "\"")))))
+
+
+(defun zev-find-mode-str ()
+  "find args based on mode"
+  (cond
+   ((eq major-mode 'sh-mode) ".*\\.sh\\|.*\\.zsh$")
+   ((eq major-mode 'c-mode) ".*\\.c\\|.*\\.h$")
+   ((eq major-mode 'c++-mode) ".*\\.cpp\\|.*\\.c\\|.*\\.h$")
+   ((eq major-mode 'conf-space-mode) ".*\\.conf\\|.*\\.cnf\\$")
+   ((eq major-mode 'php-mode) ".*\\.php")
+   ((eq major-mode 'puppet-mode) ".*\\.pp$\\|.*\\.rb$\\|.*\\.erb$")
+   ((eq major-mode 'emacs-lisp-mode) ".*\\.el")
+   ((eq major-mode 'nagios-mode) ".*\\.cfg")
+   ((eq major-mode 'erlang-mode) ".*\\.erl")
+   ((eq major-mode 'clojure-mode) ".*\\.cljs?")
+   ((eq major-mode 'conf-colon-mode) ".*\\.conf")
+   ((eq major-mode 'crontab-mode) ".*\\.crontab")
+   ((eq major-mode 'handlebars-mode) ".*\\.handlebars")
+   (t ".*\\.rb$\\|.*\\.rhtml\\|.*\\.js\\|.*\\.xbuilder\\|.*\\.rake\\|.*\\.erb$")
+   ) )
+
+
+
 (global-set-key [f5] 'revert-buffer)
 (global-set-key [f6] 'zev-sc-status)
-(global-set-key [f2] 'rgrep)
+(global-set-key [f2] 'zev-grep-find)
 
 ;; From http://nflath.com/2009/10/emacs-settings/ some other good stuff in there too.
 (setq temporary-file-directory "~/.emacs.d/tmp/")
@@ -258,5 +317,6 @@ file"
 
 ;; I like having the menu bar
 (menu-bar-mode t)
+
 
 (provide 'init-my-defaults)
