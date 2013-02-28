@@ -32,7 +32,7 @@
 (require 'init-smex)
 (require 'init-tramp)
 (require 'init-uniquify)
-
+(require 'init-yaml)
 
 (require 'init-my-defaults)
 (require 'init-work)
