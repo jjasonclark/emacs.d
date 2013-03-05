@@ -319,4 +319,8 @@ easily repeat a find command."
 (menu-bar-mode t)
 
 
+;; sgml-mode of starter kit has auto-fill on somehow
+(add-hook 'sgml-mode-hook 'turn-off-auto-fill)
+
+
 (provide 'init-my-defaults)
