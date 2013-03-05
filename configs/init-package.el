@@ -32,7 +32,10 @@
                       haskell-mode
                       erlang
                       grep-a-lot
-                      zenburn-theme))
+                      zenburn-theme
+                      rinari
+                      robe
+                      auto-complete))
 
 
 (dolist (p my-packages)

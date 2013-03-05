@@ -20,12 +20,15 @@
 (when (equal system-type 'darwin)
   (require 'init-mac))
 
+(require 'init-auto-complete)
 (require 'init-clojure)
 (require 'init-dns)
 (require 'init-gnuplot)
 (require 'init-grep-a-lot)
 (require 'init-nagios)
 (require 'init-nginx)
+
+(require 'init-ruby)
 ;; This is probably needed via emacs-wiki install
 ;;(require 'init-shell-pop)
 (require 'init-smerge)
