@@ -234,7 +234,7 @@ easily repeat a find command."
 (setq zev-grep-command "grep -n -E ")
 (setq zev-grep-find-command (lambda ()
                           (let ((fmt-str (zev-find-mode-str)))
-                            (format "%s %s -regex '%s' -print0 | xargs -0 -e %s %s"
+                            (format "%s %s -regex '%s' -print0 | xargs -0 -e %s '%s'"
                                     find-program (discover-current-project) fmt-str zev-grep-command (or (thing-at-point 'sexp) "")))))
 
 ;; Trying to get this to quote the symbol..
