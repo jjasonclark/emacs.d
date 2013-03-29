@@ -322,5 +322,19 @@ easily repeat a find command."
 ;; sgml-mode of starter kit has auto-fill on somehow
 (add-hook 'sgml-mode-hook 'turn-off-auto-fill)
 
+;; Turn off starter-kit's ffap when opening files with find-file
+;; No more pinging Tonga!
+(setq ido-use-filename-at-point nil)
+
+;; Not using abbrev file so that causes issues where it removes
+;; completion.  Playing around with other options
+(setq hippie-expand-try-functions-list '(try-complete-file-name
+                                         try-expand-dabbrev
+                                         try-expand-dabbrev-all-buffers
+                                         try-expand-dabbrev-from-kill
+                                         try-expand-list
+                                         try-expand-line
+                                         try-complete-lisp-symbol-partially
+                                         try-complete-lisp-symbol))
 
 (provide 'init-my-defaults)
