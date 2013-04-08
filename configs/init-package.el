@@ -2,12 +2,14 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 
+
 ;; ;;------------------------------------------------------------------------------
 ;; ;; Also use Melpa for some packages built straight from VC
 ;; ;;------------------------------------------------------------------------------
+(add-to-list 'package-archives '("melpa" .
+                                 "http://melpa.milkbox.net/packages/"))
 
-;; (add-to-list 'package-archives '("melpa" .
-;; "http://melpa.milkbox.net/packages/"))
+
 (if (not (file-exists-p (concat dotfiles-dir "/elpa")))
     (package-refresh-contents))
 (package-initialize)

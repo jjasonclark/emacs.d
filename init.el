@@ -36,6 +36,7 @@
 (require 'init-tramp)
 (require 'init-uniquify)
 (require 'init-yaml)
+(require 'init-web-mode)
 
 (require 'init-my-defaults)
 (require 'init-work)
