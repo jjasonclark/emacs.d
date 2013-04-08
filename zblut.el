@@ -7,3 +7,7 @@
 
 (if (<= (length (frame-list)) 1)
     (make-frame))
+
+;; Try to remove this function because elpa vs ubuntu are fighting
+;; and every magit change is showing me a message about it
+(defun inf-ruby-keys ())
