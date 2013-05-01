@@ -37,6 +37,7 @@
                       zenburn-theme
                       rinari
                       robe
+                      json-mode
                       auto-complete))
 
 

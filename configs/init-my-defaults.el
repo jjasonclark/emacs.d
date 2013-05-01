@@ -265,6 +265,12 @@ easily repeat a find command."
 
 
 
+(defun insert-url-at-point-into-buffer ()
+  "Takes url at point and inserts content into new buffer"
+  (interactive)
+  (let ((url (ffap-url-at-point)))
+    (shell-command (format "curl --silent '%s'" url) (generate-new-buffer (format "*curl %s*" url)))))
+
 (global-set-key [f5] 'revert-buffer)
 (global-set-key [f6] 'zev-sc-status)
 (global-set-key [f2] 'zev-grep-find)
@@ -336,5 +342,6 @@ easily repeat a find command."
                                          try-expand-line
                                          try-complete-lisp-symbol-partially
                                          try-complete-lisp-symbol))
+
 
 (provide 'init-my-defaults)
