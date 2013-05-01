@@ -13,11 +13,11 @@
 (add-to-list 'auto-mode-alist '("\\.handlebars\\'" . web-mode))
 
 
-(defun web-mode-hook ()
-  "Hooks for Web mode."
-  (setq web-mode-markup-indent-offset 2))
+;; (defun web-mode-hook ()
+;;   "Hooks for Web mode."
+;;   (setq web-mode-markup-indent-offset 2))
 
-(add-hook 'web-mode-hook 'web-mode-hook)
+;; (add-hook 'web-mode-hook 'web-mode-hook)
 
 
 (provide 'init-web-mode)
