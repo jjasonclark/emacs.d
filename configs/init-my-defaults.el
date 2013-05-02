@@ -271,6 +271,15 @@ easily repeat a find command."
   (let ((url (ffap-url-at-point)))
     (shell-command (format "curl --silent '%s'" url) (generate-new-buffer (format "*curl %s*" url)))))
 
+
+(defun blame-from-stable ()
+  "Makes a git blame of current file from stable"
+  (interactive)
+  (let* ((buff-file-name (buffer-file-name (current-buffer)))
+        (cd-dir (file-name-directory buff-file-name))
+        (file-name-nondirectory buff-file-name))
+    (shell-command (format "cd %s && git blame stable %s" cd-dir file-name-nondirectory) (generate-new-buffer (format "*git-blame stable:%s*" file-name-nondirectory)))))
+
 (global-set-key [f5] 'revert-buffer)
 (global-set-key [f6] 'zev-sc-status)
 (global-set-key [f2] 'zev-grep-find)
