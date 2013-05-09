@@ -25,6 +25,7 @@
 (require 'init-dns)
 (require 'init-gnuplot)
 (require 'init-grep-a-lot)
+(require 'init-magit)
 (require 'init-nagios)
 (require 'init-nginx)
 
