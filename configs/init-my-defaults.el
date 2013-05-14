@@ -220,9 +220,11 @@ easily repeat a find command."
    (progn
      (grep-compute-defaults)
      (if grep-find-command
-	 (list (read-from-minibuffer "Run find (like this): "
-				     (funcall zev-grep-find-command) nil nil
-                                     'grep-find-history))
+         (let* ((find-str (funcall zev-grep-find-command))
+                (point-pos (length find-str)))
+           (list (read-from-minibuffer "Run find (like this): "
+                                       (cons find-str point-pos) nil nil
+                                       'grep-find-history)))
        ;; No default was set
        (read-string
         "compile.el: No `grep-find-command' command available. Press RET.")
