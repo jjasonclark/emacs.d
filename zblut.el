@@ -8,6 +8,11 @@
 (if (<= (length (frame-list)) 1)
     (make-frame))
 
+(defun insert-xsel ()
+  "Insert what ever is in the x-windows selection"
+   (interactive)
+   (insert (shell-command-to-string "xsel -o")))
+
 ;; Try to remove this function because elpa vs ubuntu are fighting
 ;; and every magit change is showing me a message about it
 (defun inf-ruby-keys ())

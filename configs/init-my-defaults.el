@@ -282,6 +282,14 @@ easily repeat a find command."
         (file-name-nondirectory buff-file-name))
     (shell-command (format "cd %s && git blame stable %s" cd-dir file-name-nondirectory) (generate-new-buffer (format "*git-blame stable:%s*" file-name-nondirectory)))))
 
+
+(defun open-buffer-in-other-frame ()
+  "Opens current buffer in other frame.  This way you can look at the same buffer in an existing frame at the same time"
+  (interactive)
+  (let ((target-frame (other-frame -1)))
+    (pop-to-buffer (current-buffer) target-frame)
+    (focus-frame target-frame)))
+
 (global-set-key [f5] 'revert-buffer)
 (global-set-key [f6] 'zev-sc-status)
 (global-set-key [f2] 'zev-grep-find)
