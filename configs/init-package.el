@@ -38,7 +38,9 @@
                       rinari
                       robe
                       json-mode
-                      auto-complete))
+                      auto-complete
+                      handlebars-mode
+                      ))
 
 
 (dolist (p my-packages)
