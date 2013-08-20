@@ -40,6 +40,10 @@
                       json-mode
                       auto-complete
                       handlebars-mode
+                      interaction-log
+                      slim-mode
+                      scss-mode
+                      flymake-sass
                       ))
 
 

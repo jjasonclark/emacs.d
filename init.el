@@ -39,6 +39,9 @@
 (require 'init-yaml)
 ;;(require 'init-web-mode)
 
+;; I might only want this on from time to time
+;; (require 'init-interaction-log)
+
 (require 'init-my-defaults)
 (require 'init-work)
 

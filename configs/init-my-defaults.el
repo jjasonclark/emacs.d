@@ -262,7 +262,7 @@ easily repeat a find command."
    ((eq major-mode 'conf-colon-mode) ".*\\.conf")
    ((eq major-mode 'crontab-mode) ".*\\.crontab")
    ((eq major-mode 'handlebars-mode) ".*\\.handlebars")
-   (t ".*\\.rb$\\|.*\\.rhtml\\|.*\\.js\\|.*\\.xbuilder\\|.*\\.rake\\|.*\\.erb$")
+   (t ".*\\.rb$\\|.*\\.handlebars\\|.*\\.slim\\|.*\\.js\\|.*\\.xbuilder\\|.*\\.rake\\|.*\\.erb$")
    ) )
 
 
