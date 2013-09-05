@@ -26,8 +26,6 @@
 (require 'init-gnuplot)
 (require 'init-grep-a-lot)
 (require 'init-magit)
-(require 'init-nagios)
-(require 'init-nginx)
 
 (require 'init-ruby)
 ;; This is probably needed via emacs-wiki install
