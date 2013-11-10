@@ -1,6 +1,8 @@
+;; Must be first for package management
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)
+;; end package management
 
 ;; An attempt at more modular Emacs configuration
 ;; A hybrid of emacs-starter-kit, steve purcell's emacs.d and a little
@@ -18,8 +20,6 @@
 ;; Configs is where I will store configurations about tools I require
 ;; like spurcell's work but not all in the emacs.d dir
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/configs"))
-
-(require 'init-package)
 
 (when (equal system-type 'darwin)
   (require 'init-mac))
