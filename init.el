@@ -1,3 +1,7 @@
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+(require 'pallet)
+
 ;; An attempt at more modular Emacs configuration
 ;; A hybrid of emacs-starter-kit, steve purcell's emacs.d and a little
 ;; bit of prelude, plus my own thing

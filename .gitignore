@@ -2,6 +2,7 @@
 *~
 init-work.el
 elpa/*
+.cask
 .smex-items
 tmp/*
 url/*
