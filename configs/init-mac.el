@@ -19,7 +19,7 @@
       trash-directory "~/.Trash/emacs")
 
 ;; Ignore .DS_Store files with ido mode
-(add-to-list 'ido-ignore-files "\\.DS_Store")
+;; (add-to-list 'ido-ignore-files "\\.DS_Store")
 
 ;; Enable mouse support
 (unless window-system
@@ -34,5 +34,11 @@
   (defun track-mouse (e))
   (setq mouse-sel-mode t)
 )
+
+;; Prefer utf-8 encoding
+(prefer-coding-system 'utf-8)
+
+;; Do not use tabs for indentation
+(setq-default indent-tabs-mode nil)
 
 (provide 'init-mac)
