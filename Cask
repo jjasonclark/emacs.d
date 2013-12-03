@@ -1,5 +1,5 @@
-(source melpa)
 (source gnu)
+(source melpa)
 (source marmalade)
 
 (depends-on "ag")
@@ -8,6 +8,7 @@
 (depends-on "clojure-mode")
 (depends-on "clojure-test-mode")
 (depends-on "cljsbuild-mode")
+(depends-on "coffee-mode")
 (depends-on "crontab-mode")
 (depends-on "dash")
 (depends-on "dash-at-point")

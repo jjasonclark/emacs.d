@@ -39,6 +39,7 @@
 (require 'init-tramp)
 (require 'init-uniquify)
 (require 'init-yaml)
+(require 'init-coffee-mode)
 ;;(require 'init-web-mode)
 
 ;; I might only want this on from time to time
